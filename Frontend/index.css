@@ -1,0 +1,17 @@
+
+
+    .user-post{
+        background-color: aqua;
+    }
+    .search-bar{
+        border-color: black;
+        width: 500px;
+        font-size: medium;
+        text-align: center;
+        margin-top: 0;
+        font-size: large;
+        
+    }
+    .heading{
+        text-align: center;
+    }
