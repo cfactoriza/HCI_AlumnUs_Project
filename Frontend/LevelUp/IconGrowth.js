@@ -11,7 +11,7 @@ let level = 0;
 
 function updateAvatar() {
   const tier = Math.floor(level / levelsPerTier);
-  const growth = ((level % levelsPerTier) + 1) / levelsPerTier; // 0.2, ..., 1
+  const growth = ((level % levelsPerTier) + 1) / levelsPerTier;
   const icon = icons[Math.min(tier, icons.length - 1)];
 
   const avatar = document.getElementById("avatar-img");
