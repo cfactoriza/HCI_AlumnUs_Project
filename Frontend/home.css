@@ -79,6 +79,12 @@ body {
     padding: 18px 16px;
 }
 
+/* Add this to ensure the card links look clean */
+.card-link {
+    text-decoration: none;
+    display: block;
+}
+
 .card h2 {
     color: #f59e42;
     font-size: 1.10em;
