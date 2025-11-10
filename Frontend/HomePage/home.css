@@ -1,7 +1,7 @@
 /* home.css */
 
 /* Reset some browser defaults */
-body, h1, h2, p, div, input, a {
+body, h1, h2, p, div, input, a, button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -53,30 +53,125 @@ body {
     outline: none;
 }
 
-/* Profile picture link styling */
-.profile {
+/* --- PROFILE WIDGET STYLES --- */
+
+/* Wrapper for the entire profile section (two-row layout) */
+#profile-widget {
+    display: flex;
+    flex-direction: column; /* Stacks the two rows vertically */
+    align-items: center; /* Centers content horizontally */
+    margin: 0 auto 16px auto; 
+    padding: 5px;
+}
+
+/* Row 1: Avatar and Username */
+#avatar-name-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Space between username and level icon row */
+}
+
+/* Permanent User Profile Link/Image Container (Kept circular) */
+.profile-link {
     display: block;
     width: 48px;
     height: 48px;
-    margin: 0 auto 24px auto;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 1px 7px rgba(37,99,235,.10);
+    box-shadow: 0 1px 7px rgba(0,0,0,.15);
+    margin-right: 12px;
 }
 
-.profile img {
+#user-avatar-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
+#user-name {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Row 2: Level Icon (scaling) and Level Info */
+#level-growth-section {
+    display: flex;
+    align-items: center; /* Vertically aligns elements */
+}
+
+#level-icon-img {
+    height: 72px;
+    width: 48px;
+    border-radius: 6px; /* Slightly rounded corners for the rectangle */
+    object-fit: contain; /* Ensures the whole image is visible within the box */
+    transition: transform 0.3s ease-out; /* Smooth transition for growth */
+    box-shadow: 0 1px 7px rgba(0,0,0,.1); /* Simple shadow */
+}
+
+/* Level badge styling */
+.level-badge {
+    background: #f59e42; /* Orange color */
+    color: white;
+    padding: 4px 10px;
+    border-radius: 14px; /* Pill shape */
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-left: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    white-space: nowrap;
+}
+
+/* Level Up Button Styling */
+.level-up-action {
+    text-align: center;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+}
+.level-up-action button {
+    background: #2563eb;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+.level-up-action button:hover {
+    background: #1d4ed8;
+}
+.level-up-action button:active {
+    transform: scale(0.98);
+}
+
+/* Reset Button Specific Style */
+.level-up-action .reset-button {
+    background: #6b7280; /* Neutral gray color */
+    margin-left: 10px;
+}
+.level-up-action .reset-button:hover {
+    background: #4b5563;
+}
+
+/* --- END PROFILE WIDGET STYLES --- */
+
 
 /* Card styling for communities */
 .card {
     background: #f1f5f9;
     border-radius: 10px;
     box-shadow: 0 1px 8px rgba(37,99,235,.06);
-    margin: 18px 0;
+    margin: 18px auto;
+    max-width: 520px;
     padding: 18px 16px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37,99,235,.1);
 }
 
 /* Add this to ensure the card links look clean */
@@ -107,6 +202,7 @@ a {
     .container {
         padding: 12px 6px;
         max-width: 97vw;
+        margin: 15px auto;
     }
     body {
         padding: 18px 0;
