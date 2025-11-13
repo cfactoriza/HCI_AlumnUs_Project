@@ -57,3 +57,23 @@ body {
   color: #0070b8;
   margin-bottom: 6px;
 }
+
+.back-button {
+    display: block;
+    width: 100%;
+    background: #2563eb;
+    color: #fff;
+    padding: 12px 0;
+    margin-top: 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.08em;
+    font-weight: 600;
+    transition: background 0.2s;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(37,99,235,.09);
+}
+
+.back-button:hover {
+    background: #1e40af;
+}
