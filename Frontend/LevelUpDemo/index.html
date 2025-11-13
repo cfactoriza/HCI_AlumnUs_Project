@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Level Up Avatar Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f7f7f7;
+    }
+    #avatar-container {
+      display: inline-block;
+      margin-top: 40px;
+    }
+    #avatar-img {
+      transition: transform 0.3s;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #eee;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    #level-info {
+      margin: 24px 0 16px;
+      font-size: 1.2em;
+    }
+    button {
+      padding: 10px 30px;
+      font-size: 1em;
+      border: none;
+      border-radius: 7px;
+      background: #2a7cff;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      margin-top: 16px;
+      margin-bottom: 20px;
+    }
+    button:active {
+      background: #1a57ad;
+    }
+  </style>
+</head>
+<body>
+  <h2>Level Up Avatar Demo</h2>
+  <div id="avatar-container">
+    <img id="avatar-img" src="https://via.placeholder.com/100?text=Tier+1" alt="Level Avatar">
+  </div>
+  <div id="level-info"></div>
+  <button onclick="levelUp()">Level Up</button>
+
+  <script>
+    // Use placeholder images, swap these for your actual icons!
+    const icons = [
+      "https://via.placeholder.com/100?text=Tier+1",
+      "https://via.placeholder.com/100/FFA500?text=Tier+2",
+      "https://via.placeholder.com/100/90EE90?text=Tier+3",
+      "https://via.placeholder.com/100/40E0D0?text=Tier+4",
+      "https://via.placeholder.com/100/FF69B4?text=Tier+5"
+    ];
+    const levelsPerTier = 5; // 5 levels per tier
+    let level = 0;
+    
+    function updateAvatar() {
+      const tier = Math.floor(level / levelsPerTier);
+      const growth = ((level % levelsPerTier) + 1) / levelsPerTier; // 0.2, ..., 1
+      const icon = icons[Math.min(tier, icons.length - 1)];
+      
+      const avatar = document.getElementById("avatar-img");
+      avatar.src = icon;
+      avatar.style.transform = `scale(${1 + growth * 0.5})`;
+      
+      document.getElementById("level-info").textContent = 
+        `Level: ${(level % levelsPerTier) + 1} / ${levelsPerTier} — Tier: ${Math.min(tier+1, icons.length)}`;
+    }
+
+    function levelUp() {
+      if (level < icons.length * levelsPerTier - 1) {
+        level++;
+        updateAvatar();
+      } else {
+        // Max level reached
+        document.getElementById("level-info").textContent = "Max level reached!";
+      }
+    }
+    
+    // Initial render
+    updateAvatar();
+  </script>
+</body>
+</html>
+
+
+
+
+

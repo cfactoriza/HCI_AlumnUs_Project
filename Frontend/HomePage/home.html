@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel ="styleSheet" href="home.css">
+        <title>Alumn US</title>
+
+    </head>
+
+
+    <body>
+      <div class="container">
+        <h1 class="heading">Alumn US</h1>
+        <input class="search-bar" type="text" placeholder="Search what you need here">
+
+        <div id="profile-widget">
+
+            <div id="avatar-name-row">
+                <a class="profile-link" href="../ProfilePage/profile.html">
+                    <img src="../ProfilePage/profilePic.jpg" id="user-avatar-img">
+                </a>
+                <span id="user-name">You</span>
+            </div>
+
+            <div id="level-growth-section">
+                <img src="../LevelUp/Images/Level1.png" id="level-icon-img">
+                <div id="level-info" class="level-badge"></div>
+            </div>
+
+        </div>
+        <div class="level-up-action">
+            <button onclick="levelUp()">Trigger Milestone (Level Up)</button>
+        </div>
+      </div>
+
+      <a href="../CommunityPage/community.html" class="card-link">
+        <div class="card">
+          <h2>Community Name 1</h2>
+          <p>Short description of community...</p>
+        </div>
+      </a>
+
+      <div class="card">
+        <h2>Community Name 2</h2>
+        <p>Short description of community...</p>
+
+      </div>
+
+
+      <div class="card">
+        <h2>Community Name 3</h2>
+        <p>Short description of community...</p>
+      </div>
+
+      <script src="../LevelUp/IconGrowth.js"></script>
+    </body>
+</html>
