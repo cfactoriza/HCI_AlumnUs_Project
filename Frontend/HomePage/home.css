@@ -197,6 +197,36 @@ a {
     text-decoration: none;
 }
 
+.timeline-button{
+    justify-content: center;
+    
+    
+    
+    background-color:  rgb(14, 200, 54);
+    border: none;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    transition: transform 0.5s;
+    border-radius: 10px;
+    font-weight: bold;   
+    color: #dbeafe;
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-button:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 4px #6b7280;
+}
+
+.timeline-button:active{
+    transform: translateY(3px);
+    color: #2563eb;
+}
+
 /* Responsive */
 @media (max-width: 700px) {
     .container {
@@ -208,3 +238,4 @@ a {
         padding: 18px 0;
     }
 }
+

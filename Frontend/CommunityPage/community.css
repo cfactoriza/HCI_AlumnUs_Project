@@ -104,8 +104,35 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     padding: 24px;
     margin-bottom: 20px;
-    /* A small left border accent */
+    /* Default left border accent (Blue for general discussion/mentorship) */
     border-left: 5px solid #2563eb;
+}
+
+/* Styling for the combined Workshop/Collaboration post */
+.workshop-card {
+    /* Use the orange accent color for workshops to distinguish them */
+    border-left: 5px solid #f59e42; 
+    /* Optionally, a slightly different background or shadow for emphasis */
+    background: #fffdf6; 
+}
+
+/* New: Styling for the specific workshop details block */
+.workshop-details {
+    background-color: #ffeccf; /* Light orange background */
+    border: 1px solid #f59e42;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 15px 0;
+    color: #5d4219;
+    font-size: 0.95em;
+    font-weight: 500;
+}
+.workshop-details p {
+    margin: 3px 0;
+}
+.workshop-details strong {
+    font-weight: 700;
+    color: #000;
 }
 
 .post-title {
