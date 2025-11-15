@@ -2,13 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Alumni Timeline</title>
+  <title>Viewing John Doe's Alumni Timeline</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Alumni Journey Timeline</h1>
+  <form id="add-event-form" class="add-event-form" onsubmit="addEventHandler(event)">
+    <input type="text" id="event-date-input" placeholder="Event Date (e.g., Jun 2024)" required>
+    <input type="text" id="event-desc-input" placeholder="Event Description" required>
+    <select id="event-type-input">
+      <option value="general">General</option>
+      <option value="graduation">Graduation</option>
+      <option value="job">Career</option>
+      <option value="award">Award</option>
+      <option value="travel">Travel</option>
+    </select>
+    <label><input type="checkbox" id="is-goal-input"> Is Milestone/Goal?</label>
+    <button type="submit" class="add-btn">Add Event</button>
+  </form>
   <div id="timeline" class="timeline"></div>
   <button class="reset-btn" onclick="resetTimeline()">Reset Timeline</button>
+  <div id="history-log"></div>
   <a href="../HomePage/home.html"><button class="back-button">Back</button></a>
   <script src="timeline.js"></script>
 </body>
