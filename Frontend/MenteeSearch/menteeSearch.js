@@ -154,7 +154,14 @@ function filterMentees() {
  * @param {string} menteeName - The name of the mentee being requested.
  */
 function alertRequest(menteeName) {
+    //add level up
+    let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    level++;
+    sessionStorage.setItem('userLevel', level);
+
+
     // Since alert() is forbidden, we use a non-disruptive toast message.
+    
     const message = `Connection request sent to ${menteeName}! They will review your profile.`;
     console.log(message);
     

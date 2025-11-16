@@ -211,12 +211,21 @@ window.addPeerNote = function(idx) {
   } else {
     alert("Please enter a valid comment.");
   }
+  //level up for commenting
+  let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    level++;
+    sessionStorage.setItem('userLevel', level);
+
 };
 window.markGoalComplete = function(idx) {
   if (state.events[idx].isGoal) {
     state.events[idx].completed = true;
     logChange("Marked goal as complete at index " + idx);
     renderTimeline();
+
+    let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    level++;
+    sessionStorage.setItem('userLevel', level);
   }
 };
 function addEventHandler(e) {
@@ -234,6 +243,13 @@ function addEventHandler(e) {
   } else {
     alert("Please provide a valid date and description.");
   }
+
+
+  //THIS LEVELS UP
+  let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    level++;
+    sessionStorage.setItem('userLevel', level);
+
 }
 function resetTimeline() {
   state = createState();

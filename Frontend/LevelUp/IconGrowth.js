@@ -1,3 +1,5 @@
+
+
 const icons = [
   "../LevelUp/Images/Level1.png", // Tier 1 (Lv 1-5)
   "../LevelUp/Images/Level2.png", // Tier 2 (Lv 6-10)
@@ -55,12 +57,12 @@ function levelUp() {
   const maxLevel = icons.length * levelsPerTier;
 
   if (level < maxLevel - 1) {
-    level++;
+    //level++;
     updateAvatar();
 
   } else if (level === maxLevel - 1) {
     // Handle final level up
-    level++;
+    //level++;
     updateAvatar();
     document.getElementById("level-info").textContent = "Max Level Reached!";
 
@@ -69,6 +71,7 @@ function levelUp() {
     document.getElementById("level-info").textContent = "Max Level Reached!";
   }
 }
+
 
 // Initial render when the script loads to set the current level and icon
 window.onload = updateAvatar;

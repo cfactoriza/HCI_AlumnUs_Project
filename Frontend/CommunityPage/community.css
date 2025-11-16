@@ -166,6 +166,20 @@ body {
     text-decoration: underline;
 }
 
+.search-mentee-button {
+    background-color: #2563eb; /* Blue for search */
+    width:100%;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: rgb(81, 212, 81);
+    font-size: 20px;
+    border:none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
 /* Simple responsiveness for smaller screens */
 @media (max-width: 768px) {
     .community-header, .posts-section {

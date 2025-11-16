@@ -1,5 +1,11 @@
+
+
 document.getElementById('new-post-form').addEventListener('submit', function(e) {
     e.preventDefault();
+
+    
+
+
 
     const postType = document.getElementById('post-type').value;
     const postTitle = document.getElementById('post-title').value;
@@ -25,10 +31,16 @@ document.getElementById('new-post-form').addEventListener('submit', function(e) 
         workshop: workshopDetails, // Include workshop details if applicable
         // Define the button text based on the new post type
         linkText: postType === 'workshop' ? 'Join Workshop' : postType === 'job' ? 'View Post Details' : 'View Discussion'
+        
     };
 
     // 1. Retrieve existing posts from localStorage or initialize an empty array
     let posts = JSON.parse(localStorage.getItem('communityPosts')) || [];
+
+    // add level up
+    let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    level++;
+    sessionStorage.setItem('userLevel', level);
 
     // 2. Prepend the new post (to show it at the top, newest first)
     posts.unshift(newPost);
@@ -38,4 +50,7 @@ document.getElementById('new-post-form').addEventListener('submit', function(e) 
 
     // 4. Redirect to the community page to see the updated list
     window.location.href = '../CommunityPage/community.html';
+   
+    
+
 });
