@@ -58,20 +58,37 @@ function loadAndRenderPosts() {
     postsContainer.innerHTML = '<h2 class="section-title">Latest Discussions & Requests</h2>';
 
     // 4. Render dynamic posts first (newest at the top)
-    dynamicPosts.forEach(post => {
+    dynamicPosts.forEach((post, index) => {
         const postElement = document.createElement('div');
         // Apply the special 'workshop-card' class if the type is workshop
         const cardClass = post.type === 'workshop' ? 'post-card workshop-card' : 'post-card';
         
         postElement.className = cardClass;
         postElement.innerHTML = `
-            <h3 class="post-title">${post.title}</h3>
-            <p class="post-meta">${post.meta}</p>
-            ${formatWorkshopMeta(post)}
-            <p class="post-snippet">${post.snippet}</p>
-            <a href="#" class="read-more">${post.linkText}</a>
+            <div style="display: flex; justify-content: space-between; align-items: start;">
+                <div style="flex: 1;">
+                    <h3 class="post-title">${post.title}</h3>
+                    <p class="post-meta">${post.meta}</p>
+                    ${formatWorkshopMeta(post)}
+                    <p class="post-snippet">${post.snippet}</p>
+                    <a href="#" class="read-more">${post.linkText}</a>
+                </div>
+                <button class="delete-post-btn" data-index="${index}" style="background: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; white-space: nowrap; margin-left: 12px;">Delete</button>
+            </div>
         `;
         postsContainer.appendChild(postElement);
+    });
+
+    // Add event listeners to delete buttons
+    document.querySelectorAll('.delete-post-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const index = parseInt(this.dataset.index);
+            if (confirm('Are you sure you want to delete this post?')) {
+                dynamicPosts.splice(index, 1);
+                localStorage.setItem('communityPosts', JSON.stringify(dynamicPosts));
+                loadAndRenderPosts(); // Re-render the posts
+            }
+        });
     });
 
     // 5. Append the original static posts content
