@@ -62,6 +62,9 @@ body {
     align-items: center; /* Centers content horizontally */
     margin: 0 auto 16px auto; 
     padding: 5px;
+    border-color:blue;
+    border-width: 8px;
+    
 }
 
 /* Row 1: Avatar and Username */
@@ -225,6 +228,11 @@ a {
 .timeline-button:active, .search-mentee-button:active {
     transform: translateY(1px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header{
+    margin: 18px auto;
+    max-width: 520px;
 }
 
 /* Responsive */
