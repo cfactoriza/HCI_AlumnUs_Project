@@ -51,6 +51,56 @@ const MENTEE_DATA = [
         classes: ["Market Research", "Consumer Behavior"],
         professors: ["Dr. Smith", "Prof. Brown"],
         image: "https://placehold.co/70x70/ef4444/ffffff?text=LW"
+    },
+    {
+        id: 6,
+        name: "Aisha Khan",
+        university: "Tech University of California",
+        major: "Mechanical Engineering",
+        department: "Engineering",
+        classes: ["Thermodynamics", "Fluid Mechanics"],
+        professors: ["Dr. Kim", "Dr. Chen"],
+        image: "https://placehold.co/70x70/8b5cf6/ffffff?text=AK"
+    },
+    {
+        id: 7,
+        name: "Samuel Green",
+        university: "Central State Arts College",
+        major: "Photography",
+        department: "Arts",
+        classes: ["Digital Media", "Photojournalism"],
+        professors: ["Dr. Miller", "Prof. Davis"],
+        image: "https://placehold.co/70x70/22c55e/ffffff?text=SG"
+    },
+    {
+        id: 8,
+        name: "Elena Petrova",
+        university: "Tech University of California",
+        major: "Computer Science",
+        department: "Engineering",
+        classes: ["Operating Systems", "Database Systems"],
+        professors: ["Dr. Kim", "Prof. Lee"],
+        image: "https://placehold.co/70x70/f43f5e/ffffff?text=EP"
+    },
+    {
+        id: 9,
+        name: "David Brown",
+        university: "City Business School",
+        major: "Accounting",
+        department: "Business",
+        classes: ["Corporate Accounting", "Taxation"],
+        professors: ["Dr. Smith", "Prof. Johnson"],
+        image: "https://placehold.co/70x70/14b8a6/ffffff?text=DB"
+    },
+    {
+        id: 10,
+        name: "Sofia Martinez",
+        university: "Central State Arts College",
+        major: "Fine Arts",
+        department: "Arts",
+        classes: ["Art History", "Painting Techniques"],
+        professors: ["Dr. Miller", "Prof. Davis"],
+        image: "https://placehold.co/70x70/fbbf24/ffffff?text=SM"
     }
 ];
 
@@ -60,14 +110,20 @@ const MENTEE_DATA = [
  */
 const ALL_FILTERS = {
     departments: new Set(),
+    majors: new Set(),
     classes: new Set(),
     professors: new Set(),
+    universities: new Set(),
 };
 
 // Populate the sets by iterating over the mentee data
 MENTEE_DATA.forEach(mentee => {
     // Departments
     ALL_FILTERS.departments.add(mentee.department);
+    // Majors
+    if (mentee.major) ALL_FILTERS.majors.add(mentee.major);
+    // Universities
+    if (mentee.university) ALL_FILTERS.universities.add(mentee.university);
     
     // Classes
     mentee.classes.forEach(cls => ALL_FILTERS.classes.add(cls));

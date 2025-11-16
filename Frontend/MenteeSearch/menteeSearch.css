@@ -167,6 +167,17 @@ body {
     font-weight: 500;
 }
 
+/* Fade out then fade in animations for button text */
+@keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 .request-button {
     background: #10b981;
     color: white;
@@ -176,12 +187,31 @@ body {
     font-size: 0.9em;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.3s ease, color 0.3s ease;
     flex-shrink: 0;
 }
 
 .request-button:hover {
     background: #059669;
+}
+
+/* Requested state: yellow background with dark text and checkmark */
+.request-button.requested {
+    background: #facc15;
+    color: #1f2937;
+    cursor: default;
+    animation: fade-in 0.4s ease-in-out;
+}
+
+.request-button.requested:hover {
+    background: #facc15;
+}
+
+/* Toast style for request confirmation */
+.ms-toast { /* fallback in case JS-inserted style isn't present */
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    padding: 12px 20px; background: #111827; color: #fff; border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000; font-weight: 600;
 }
 
 .back-link {
