@@ -190,6 +190,13 @@ function filterMentees() {
  * @param {string} menteeName - The name of the mentee being requested.
  */
 function alertRequest(menteeName, buttonEl, menteeId) {
+
+    // add level up
+    let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    level++;
+    sessionStorage.setItem('userLevel', level);
+
+
     // Show a small, non-blocking toast
     const message = `Connection request sent to ${menteeName}! They will review your profile.`;
     console.log(message);

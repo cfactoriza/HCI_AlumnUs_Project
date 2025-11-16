@@ -75,10 +75,26 @@ select:focus {
     outline: none;
 }
 
-button {
+.back-button {
     display: block;
     width: 100%;
     background: #2563eb;
+    color: #fff;
+    padding: 12px 0;
+    margin-top: 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.08em;
+    font-weight: 600;
+    transition: background 0.2s;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(37,99,235,.09);
+}
+
+.submit{
+    background: rgb(30, 220, 40);
+    display: block;
+    width: 100%;
     color: #fff;
     padding: 12px 0;
     margin-top: 18px;
@@ -97,6 +113,19 @@ button:hover {
 
 a {
     text-decoration: none;
+}
+
+.bar {
+    display: block;
+    width: 95%;
+    margin: 12px auto 20px auto;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1.5px solid #d1d5db;
+    font-size: 1.05em;
+    transition: border 0.2s;
+    background: #f9fafb;
+    color: #374151;
 }
 
 @media (max-width: 600px) {

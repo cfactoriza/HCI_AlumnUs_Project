@@ -11,54 +11,65 @@
     </head>
     <body>
         <div>
-            <label for="myDropdown">Choose an option:</label>
+            <label for="myDropdown">What is your name:</label>
+            <input class="bar" type="text" placeholder="First and Last name">
+        </div>
+
+        <div>
+            <label for="myDropdown">What is your major:</label>
             <select id="myDropdown" name="myDropdownName">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+                <option value="option1">Software Engineering</option>
+                <option value="option2">Computer Science</option>
+                <option value="option3">Finance</option>
+                <option value="option4">Actuary Science</option>
+                <option value="option5">Mechanical Engineering</option>
+                
             </select>
         </div>
 
         <div>
-            <label for="myDropdown">Choose an option:</label>
+            <label for="myDropdown">What is your current level of education:</label>
             <select id="myDropdown" name="myDropdownName">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+                <option value="option1">Elementary</option>
+                <option value="option2">Middle School</option>
+                <option value="option3">High School</option>
+                <option value="option4">University and above</option>
+                <option value="option5">Trade School</option>
+                <option value="option6">Alumni</option>
             </select>
         </div>
 
         <div>
-            <label for="myDropdown">Choose an option:</label>
-            <select id="myDropdown" name="myDropdownName">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-            </select>
+            <label for="myDropdown">Date of birth:</label>
+            <input class="bar" type="text" placeholder="Month/Day/Year">
         </div>
 
         <div>
-            <label for="myDropdown">Choose an option:</label>
-            <select id="myDropdown" name="myDropdownName">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-            </select>
+            <label for="myDropdown">Skills you would like to share:</label>
+ 
+            <input class="bar" type="text" placeholder="Write the list here">
+       
         </div>
 
-        <div>
-            <label for="myDropdown">Choose an option:</label>
-            <select id="myDropdown" name="myDropdownName">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-            </select>
-        </div>
+         <a href="../HomePage/home.html">
+            <button class="submit" onclick="addLevel()">
+                Submit
+            </button>
+        </a>   
         
         <a href="../HomePage/home.html">
-            <button>
+            <button class="back-button">
                 Back
             </button>
         </a>        
     </body>
+
+    <script>// add level up
+        function addLevel(){
+            let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
+            level++;
+            sessionStorage.setItem('userLevel', level);
+        }
+        
+    </script>
 </html>
