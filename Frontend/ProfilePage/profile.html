@@ -51,11 +51,9 @@
        
         </div>
 
-         <a href="../HomePage/home.html">
-            <button class="submit" onclick="addLevel()">
-                Submit
-            </button>
-        </a>   
+         <button class="submit" onclick="addLevel()">
+            Submit
+        </button>   
         
         <a href="../HomePage/home.html">
             <button class="back-button">
@@ -112,7 +110,12 @@
             level++;
             showLevelUpToast(level);
             sessionStorage.setItem('userLevel', level);
+            showLevelUpToast(level);
             
+            // Redirect to home page after toast displays
+            setTimeout(() => {
+                window.location.href = '../HomePage/home.html';
+            }, 1500);
         }
         
     </script>
