@@ -297,6 +297,12 @@ function addEventHandler(e) {
     logChange("Added event: " + descInput);
     renderTimeline();
     document.getElementById('add-event-form').reset();
+    // Level up when a user adds an event
+    let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    level++;
+    sessionStorage.setItem('userLevel', level);
+    // Show toast using the timeline's level-up function (if available)
+    try { if (typeof showLevelUpToast === 'function') showLevelUpToast(level); } catch (e) { /* ignore */ }
   } else {
     alert("Please provide a valid date and description.");
   }
