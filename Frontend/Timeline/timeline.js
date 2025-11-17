@@ -244,6 +244,15 @@ window.pinNotePrompt = function(idx) {
   } else {
     alert("Please enter a valid note.");
   }
+
+
+  
+  //THIS LEVELS UP
+  let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    level++;
+    sessionStorage.setItem('userLevel', level);
+    
+
 };
 window.addPeerNote = function(idx) {
   const name = prompt("Your name or reviewer tag (optional):", "");
@@ -259,7 +268,7 @@ window.addPeerNote = function(idx) {
   let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
     level++;
     sessionStorage.setItem('userLevel', level);
-
+  showLevelUpToast(level);
 };
 window.markGoalComplete = function(idx) {
   if (state.events[idx].isGoal) {
@@ -289,11 +298,6 @@ function addEventHandler(e) {
   }
 
 
-  //THIS LEVELS UP
-  let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
-    level++;
-    sessionStorage.setItem('userLevel', level);
-    showLevelUpToast(level);
 
 }
 function resetTimeline() {
