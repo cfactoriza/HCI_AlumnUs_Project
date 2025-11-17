@@ -254,7 +254,7 @@ window.pinNotePrompt = function(idx) {
   let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
     level++;
     sessionStorage.setItem('userLevel', level);
-    
+    showLevelUpToast(level);
 
 };
 window.addPeerNote = function(idx) {
