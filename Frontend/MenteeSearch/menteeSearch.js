@@ -14,7 +14,10 @@ const REQUESTED_MENTEES = new Set();
  * @param {number} newLevel - The new level after leveling up.
  */
 function showLevelUpToast(newLevel) {
-  const message = `🎉 Level Up! You're now level ${newLevel}!`;
+   let currentTier = Math.floor(newLevel / 5) + 1;
+   let currentLvl = newLevel % 5 + 1;
+
+  const message = `🎉 Level Up! You're now level ${currentLvl} Tier ${currentTier}!`;
   console.log(message);
 
   const levelUpToast = document.createElement('div');

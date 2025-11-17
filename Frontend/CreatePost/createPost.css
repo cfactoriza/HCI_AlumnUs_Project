@@ -146,6 +146,7 @@ button[type="submit"]:active {
     margin-top: 0.5rem;
     box-shadow: none;
     font-weight: 600;
+    
 }
 .back-button:hover {
     background: #d1d5db; /* Medium gray */
