@@ -3,58 +3,61 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="createPost.css"> <!-- Reusing existing profile styles for form elements -->
+        <link rel="stylesheet" href="createPost.css">
+        <link rel ="styleSheet" href="../SideBar/sidebar.css"
         <title>Create New Post</title>
     </head>
     <body>
-        <div class="form-container">
-            <h1>Create New Community Post</h1>
-            <h2>Choose the type of collaboration</h2>
-            <h3>This post will be visible to all members in the community.</h3>
-
-            <form id="new-post-form">
-                <label for="post-type">Post Type:</label>
-                <select id="post-type" name="post-type" required>
-                    <option value="discussion">Open Discussion</option>
-                    <option value="workshop">Mentor Workshop/Group Collaboration</option>
-                    <option value="job">Job Posting/Referral</option>
-                </select>
+        <main id="main-content-area">
+            <div class="form-container">
+                <h1>Create New Community Post</h1>
+                <h2>Choose the type of collaboration</h2>
+                <h3>This post will be visible to all members in the community.</h3>
+    
+                <form id="new-post-form">
+                    <label for="post-type">Post Type:</label>
+                    <select id="post-type" name="post-type" required>
+                        <option value="discussion">Open Discussion</option>
+                        <option value="workshop">Mentor Workshop/Group Collaboration</option>
+                        <option value="job">Job Posting/Referral</option>
+                    </select>
+                    
+                    <label for="post-title">Post Title:</label>
+                    <input type="text" id="post-title" placeholder="E.g., Workshop: Group Resume Review Session" required>
+    
+                    <label for="post-author">Your Name / Affiliation:</label>
+                    <input type="text" id="post-author" placeholder="E.g., Emily R. (Alumnus '16)" required>
+                    
+                    <!-- NEW WORKSHOP FIELDS CONTAINER -->
+                    <div id="workshop-fields" style="display: none;">
+                        <h3>Workshop Details</h3>
+    
+                        <label for="workshop-date">Date:</label>
+                        <input type="date" id="workshop-date">
+    
+                        <label for="workshop-time">Time (Local):</label>
+                        <input type="time" id="workshop-time">
+    
+                        <label for="workshop-duration">Duration (minutes):</label>
+                        <input type="number" id="workshop-duration" min="30" max="240" placeholder="e.g., 60">
+    
+                        <label for="attendee-limit">Attendee Limit (Optional):</label>
+                        <input type="number" id="attendee-limit" min="1" max="50" placeholder="e.g., 8">
+                    </div>
+                    <!-- END WORKSHOP FIELDS -->
+    
+                    <label for="post-snippet">Brief Description / Session Details:</label>
+                    <textarea id="post-snippet" placeholder="Describe the focus of the post (e.g., project, resume, etc.). Max 200 chars." maxlength="200" rows="4" required></textarea>
+    
+                    <button type="submit" >Publish Post</button>
+      
+                </form>
                 
-                <label for="post-title">Post Title:</label>
-                <input type="text" id="post-title" placeholder="E.g., Workshop: Group Resume Review Session" required>
-
-                <label for="post-author">Your Name / Affiliation:</label>
-                <input type="text" id="post-author" placeholder="E.g., Emily R. (Alumnus '16)" required>
-                
-                <!-- NEW WORKSHOP FIELDS CONTAINER -->
-                <div id="workshop-fields" style="display: none;">
-                    <h3>Workshop Details</h3>
-
-                    <label for="workshop-date">Date:</label>
-                    <input type="date" id="workshop-date">
-
-                    <label for="workshop-time">Time (Local):</label>
-                    <input type="time" id="workshop-time">
-
-                    <label for="workshop-duration">Duration (minutes):</label>
-                    <input type="number" id="workshop-duration" min="30" max="240" placeholder="e.g., 60">
-
-                    <label for="attendee-limit">Attendee Limit (Optional):</label>
-                    <input type="number" id="attendee-limit" min="1" max="50" placeholder="e.g., 8">
-                </div>
-                <!-- END WORKSHOP FIELDS -->
-
-                <label for="post-snippet">Brief Description / Session Details:</label>
-                <textarea id="post-snippet" placeholder="Describe the focus of the post (e.g., project, resume, etc.). Max 200 chars." maxlength="200" rows="4" required></textarea>
-
-                <button type="submit" >Publish Post</button>
-  
-            </form>
-            
-            <a href="../CommunityPage/community.html">
-                <button class="back-button">Back to Community</button>
-            </a>
-        </div>
+                <a href="../CommunityPage/community.html">
+                    <button class="back-button">Back to Community</button>
+                </a>
+            </div>
+        </main>
 
         <script>
             // Simple logic to show/hide workshop fields
@@ -75,7 +78,8 @@
             });
         </script>
         
-
+        <script src="../SideBar/sidebar.js"></script>
+        <script src="../LevelUp/IconGrowth.js"></script>
         <script src="createPost.js"></script>
     </body>
 </html>

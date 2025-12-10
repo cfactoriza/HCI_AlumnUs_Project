@@ -6,6 +6,13 @@ body {
   position: relative;
   min-height: 100vh;
 }
+
+#main-content-area {
+    margin-left: 200px;
+    flex-grow: 1;
+    padding: 30px;
+}
+
 .notice-banner {
   background: #f59e42;
   color: #fff;

@@ -1,98 +1,57 @@
 <!DOCTYPE html>
-
 <html lang="en">
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel ="styleSheet" href="home.css">
-        <title>Alumn US</title>
-
+      <link rel ="styleSheet" href="../SideBar/sidebar.css"
+      <title>Alumn US | Dashboard</title>
     </head>
 
-
     <body>
-      <div class="container">
-        <h1 class="heading">Alumn US</h1>
+      <main id="main-content-area">
         <input class="search-bar" type="text" placeholder="Search what you need here">
-
-        <div id="profile-widget">
-
-            <div id="avatar-name-row">
-                <a class="profile-link" href="../ProfilePage/profile.html">
-                    <img src="../ProfilePage/profilePic.jpg" id="user-avatar-img">
-                </a>
-                <span id="user-name">You</span>
-            </div>
-
-            <div id="level-growth-section">
-                <img src="../LevelUp/Images/Level1.png" id="level-icon-img">
-                <div id="level-info" class="level-badge"></div>
-            </div>
-
+        
+        <div class="welcome-section">
+            <h2>Welcome Back, You!</h2>
+            <p>Your journey continues. Check your timeline or explore new communities.</p>
+            <a href="../Timeline/index.html">
+              <button class="timeline-button">Daily Timeline Review Here</button>
+            </a>
         </div>
 
 
-        <!-- THIS IS FOR NULLIFYING THE TRIGGER FOR LEVELING UP
-        <div class="level-up-action">
-            <button onclick="levelUp()">Trigger Milestone (Level Up)</button>
-        </div>
-        
-        -->
-        
-        
-         <div class="level-up-action">
-            <h2>Welcome!</h2>
+        <div class="communities-section">
+            <div class="header">
+              <h1>Joined Communities</h1>
+              <button class="explore-all-button">Explore All</button>
+            </div>
             
+            <div class="community-grid">
+              <a href="../CommunityPage/community.html" class="card-link">
+                <div class="card">
+                  <h2>Alumni Career Network</h2>
+                  <p>Short description of community...</p>
+                </div>
+              </a>
+
+              <!-- <a href="../CommunityPage/community.html" class="card-link">
+                <div class="card">
+                  <h2>Early Advising Group</h2>
+                  <p>Get tips and advice on your first year.</p>
+                </div>
+              </a>
+              
+              <a href="../CommunityPage/community.html" class="card-link">
+                <div class="card">
+                  <h2>Studying Allies Network</h2>
+                  <p>Find partners for study sessions and group projects.</p>
+                </div>
+              </a>
+               -->
+            </div>
         </div>
-        <a href="../Timeline/index.html">
-          <div >
-            <button class="timeline-button"> Daily Timeline Review Here</button>
-          </div>
-        </a>
-
-        
-      </div>
-
-      <div class="header">
-          <h1>Communities</h1>
-      </div>
-      
-
-      <a href="../CommunityPage/community.html" class="card-link">
-        <div class="card">
-          <h2>Alumni Career Network</h2>
-          <p>Short description of community...</p>
-        </div>
-      </a>
-
-    <!---
-      <div class="card">
-        <h2>Early advising</h2>
-        <p>Short description of community...</p>
-      </div>
-
-      <div class="card">
-        <h2>Choosing the best personalized career</h2>
-        <p>Short description of community...</p>
-      </div>
-
-      <div class="card">
-        <h2>Studying allies</h2>
-        <p>Short description of community...</p>
-      </div>
-
-      <div class="card">
-        <h2>Housing advising</h2>
-        <p>Short description of community...</p>
-      </div>
-
-      <div class="card">
-        <h2>Good diets on College</h2>
-        <p>Short description of community...</p>
-      </div>
-
-    -->
-      
-
+      </main>
+      <script src="../SideBar/sidebar.js"></script>
       <script src="../LevelUp/IconGrowth.js"></script>
     </body>
 </html>

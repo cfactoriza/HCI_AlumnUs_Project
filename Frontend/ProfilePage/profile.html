@@ -1,122 +1,57 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="profile.css">
-
-
-<html lan="en">
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="profile.css">
+        <link rel="stylesheet" href="../SideBar/sidebar.css">
+
         <title>Profile setup</title>
-        <h1>Alumn US</h1>
-        <h2>Set up your preferences</h2>
-        <h3>This will help us match you with the right posts, people, and levels</h3>
     </head>
+
     <body>
-        <div>
-            <label for="myDropdown">What is your name:</label>
-            <input class="bar" type="text" placeholder="First and Last name">
-        </div>
+        <main id="main-content-area">
+            <div>
+                <h1>Alumn US</h1>
+                <h2>Set up your preferences</h2>
+                <h3>This will help us match you with the right posts, people, and levels</h3>
+            </div>
 
-        <div>
-            <label for="myDropdown">What is your major:</label>
-            <select id="myDropdown" name="myDropdownName">
-                <option value="option1">Software Engineering</option>
-                <option value="option2">Computer Science</option>
-                <option value="option3">Finance</option>
-                <option value="option4">Actuary Science</option>
-                <option value="option5">Mechanical Engineering</option>
-                
-            </select>
-        </div>
+            <div>
+                <label for="nameInput">What is your name:</label>
+                <input id="nameInput" class="bar" type="text" placeholder="First and Last name">
+            </div>
 
-        <div>
-            <label for="myDropdown">What is your current level of education:</label>
-            <select id="myDropdown" name="myDropdownName">
-                <option value="option1">Elementary</option>
-                <option value="option2">Middle School</option>
-                <option value="option3">High School</option>
-                <option value="option4">University and above</option>
-                <option value="option5">Trade School</option>
-                <option value="option6">Alumni</option>
-            </select>
-        </div>
+            <div>
+                <label for="majorDropdown">What is your major:</label>
+                <select id="majorDropdown" name="myDropdownName">
+                    <option value="option1">Software Engineering</option>
+                    <option value="option2">Computer Science</option>
+                    <option value="option3">Finance</option>
+                    <option value="option4">Actuary Science</option>
+                    <option value="option5">Mechanical Engineering</option>
+                </select>
+            </div>
 
-        <div>
-            <label for="myDropdown">Date of birth:</label>
-            <input class="bar" type="text" placeholder="Month/Day/Year">
-        </div>
+            <div>
+                <label for="educationDropdown">What is your current level of education:</label>
+                <select id="educationDropdown" name="myDropdownName">
+                    <option value="option1">Elementary</option>
+                    <option value="option2">Middle School</option>
+                    <option value="option3">High School</option>
+                    <option value="option4">College Student</option>
+                    <option value="option5">Alumni</option>
+                </select>
+            </div>
 
-        <div>
-            <label for="myDropdown">Skills you would like to share:</label>
- 
-            <input class="bar" type="text" placeholder="Write the list here">
-       
-        </div>
+            <a href="../HomePage/home.html"><button class="back-button">Back</button></a>
+            <button class="submit" onclick="addLevel()">Submit</button>
 
-         <button class="submit" onclick="addLevel()">
-            Submit
-        </button>   
-        
-        <a href="../HomePage/home.html">
-            <button class="back-button">
-                Back
-            </button>
-        </a>        
+        </main>
+
+        <script src="../SideBar/sidebar.js"></script>
+        <script src="../LevelUp/IconGrowth.js"></script>
+        <script src="profile.js"></script>
     </body>
-
-    <script>// add level up
-        function showLevelUpToast(newLevel) {
-            let currentTier = Math.floor(newLevel / 5) + 1;
-            let currentLvl = newLevel % 5 + 1;
-
-            const message = `🎉 Level Up! You're now level ${currentLvl} Tier ${currentTier}!`;
-            console.log(message);
-
-            const levelUpToast = document.createElement('div');
-            levelUpToast.className = 'level-up-toast';
-            levelUpToast.textContent = message;
-            document.body.appendChild(levelUpToast);
-
-            // Add keyframes and styles once
-            if (!document.querySelector('style[data-level-up-css]')) {
-            const styleSheet = document.createElement('style');
-            styleSheet.setAttribute('data-level-up-css', 'true');
-            styleSheet.type = 'text/css';
-            styleSheet.innerText = `
-            @keyframes levelup-fadein { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-            @keyframes levelup-fadeout { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-20px); } }
-            .level-up-toast { 
-            position: fixed; 
-            top: 20px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            padding: 16px 24px; 
-            background: linear-gradient(135deg, #f59e42 0%, #e88d2dff 100%); 
-            color: #fff; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
-            z-index: 1000; 
-            font-weight: 600; 
-            font-size: 16px;
-            animation: levelup-fadein 0.4s, levelup-fadeout 0.4s 4.6s; 
-            }
-            `;
-            document.head.appendChild(styleSheet);
-            }
-
-            setTimeout(() => levelUpToast.remove(), 5000);
-        }
-        
-        function addLevel(){
-            let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
-            level++;
-            showLevelUpToast(level);
-            sessionStorage.setItem('userLevel', level);
-            
-            
-            // Redirect to home page after toast displays
-            setTimeout(() => {
-                window.location.href = '../HomePage/home.html';
-            }, 1500);
-        }
-        
-    </script>
 </html>
