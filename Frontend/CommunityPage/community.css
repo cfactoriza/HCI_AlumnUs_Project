@@ -13,6 +13,14 @@ body {
     min-height: 100vh;
 }
 
+#main-content-area {
+    /* FIX: Push content past the 180px sidebar + 20px gap */
+    margin-left: 200px;
+    flex-grow: 1;
+    /* Add padding to the main wrapper instead of the content sections */
+    padding: 30px; 
+}
+
 /* Community Header Styling - Main Info Box */
 .community-header {
     background: #fff;

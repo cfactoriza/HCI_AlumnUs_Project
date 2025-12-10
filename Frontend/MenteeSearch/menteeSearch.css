@@ -12,6 +12,12 @@ body {
     min-height: 100vh;
 }
 
+#main-content-area {
+    margin-left: 200px;
+    flex-grow: 1;
+    padding: 30px;
+}
+
 .container {
     background: #fff;
     border-radius: 16px;

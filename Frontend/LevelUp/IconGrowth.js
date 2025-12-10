@@ -1,5 +1,3 @@
-
-
 const icons = [
   "../LevelUp/Images/Level1.png", // Tier 1 (Lv 1-5)
   "../LevelUp/Images/Level2.png", // Tier 2 (Lv 6-10)
