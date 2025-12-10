@@ -52,24 +52,20 @@ function updateAvatar() {
  * Increments the user level and triggers the update.
  */
 function levelUp() {
-  const maxLevel = icons.length * levelsPerTier;
+const maxLevel = icons.length * levelsPerTier;
 
-  if (level < maxLevel - 1) {
-    //level++;
-    updateAvatar();
+  if (level < maxLevel) { // Only increment if we haven't reached the absolute max
+    level++;
+    sessionStorage.setItem('userLevel', level); // Save the new level instantly
+    updateAvatar(); // Call the function that updates the sidebar HTML instantly
 
-  } else if (level === maxLevel - 1) {
-    // Handle final level up
-    //level++;
-    updateAvatar();
-    document.getElementById("level-info").textContent = "Max Level Reached!";
+    // You can add logic for a "Level Up!" toast notification here if desired
+    console.log(`Leveled up to: ${level}`);
 
   } else {
-    // Already max level
-    document.getElementById("level-info").textContent = "Max Level Reached!";
+    console.log("Maximum level reached!");
   }
 }
 
-
 // Initial render when the script loads to set the current level and icon
-window.onload = updateAvatar;
+// window.onload = updateAvatar;
