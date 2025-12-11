@@ -10,9 +10,6 @@
     <body>
       <main id="main-content-area">
 
-        <!-- NEW BACK BUTTON -->
-        <button class="back-button" onclick="goBack()">← Back</button>
-
         <input class="search-bar" type="text" placeholder="Search what you need here">
 
         <div class="welcome-section">
@@ -49,17 +46,6 @@
 
       <script src="../SideBar/sidebar.js"></script>
       <script src="../LevelUp/IconGrowth.js"></script>
-
-      <!-- UNIVERSAL BACK FUNCTION -->
-      <script>
-      function goBack() {
-          if (document.referrer && document.referrer !== window.location.href) {
-              window.history.back();
-          } else {
-              window.location.href = "../HomePage/home.html";
-          }
-      }
-      </script>
 
     </body>
 </html>

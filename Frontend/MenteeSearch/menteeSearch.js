@@ -6,8 +6,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // The list will only display after the user hits the search button
 });
 
-// In-memory set to keep track of requested mentees for the current page lifetime
+// In-memory set to keep track of requested mentees (persisted in localStorage)
 const REQUESTED_MENTEES = new Set();
+const REQUESTED_KEY = 'requestedMentees';
+
+// Load persisted requested mentees into the set
+function loadRequestedFromStorage() {
+    try {
+        const raw = localStorage.getItem(REQUESTED_KEY);
+        if (!raw) return;
+        const arr = JSON.parse(raw);
+        if (Array.isArray(arr)) arr.forEach(id => REQUESTED_MENTEES.add(Number(id)));
+    } catch (e) {
+        console.warn('Failed to load requested mentees from storage', e);
+    }
+}
+
+function saveRequestedToStorage() {
+    try {
+        localStorage.setItem(REQUESTED_KEY, JSON.stringify(Array.from(REQUESTED_MENTEES)));
+    } catch (e) {
+        console.warn('Failed to save requested mentees to storage', e);
+    }
+}
+
+// initialize
+loadRequestedFromStorage();
 
 /**
  * Display a toast notification for level-up events.
@@ -147,25 +171,57 @@ function renderMentees(menteesToRender) {
             </div>
         `;
 
-        // Create request button and wire up behavior
+        // Create button container for request and cancel buttons
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'button-container';
+
+        // Create request button
         const button = document.createElement('button');
         button.className = 'request-button';
         button.dataset.menteeId = mentee.id;
         button.type = 'button';
-
-        // Default button label
         button.textContent = 'Request Connect';
 
-        // If this mentee has already been requested during this page session, show requested state
-        if (REQUESTED_MENTEES.has(mentee.id)) {
+        // Check if this mentee has already been requested
+        const isRequested = REQUESTED_MENTEES.has(mentee.id);
+        if (isRequested) {
             button.textContent = 'Requested ✓';
             button.disabled = true;
             button.classList.add('requested');
+            card.classList.add('requested-card');
         }
 
-        button.addEventListener('click', () => alertRequest(mentee.name, button, mentee.id));
+        button.addEventListener('click', () => alertRequest(mentee.name, button, mentee.id, card, buttonContainer));
+        buttonContainer.appendChild(button);
 
-        card.appendChild(button);
+        // Create cancel button (only show if already requested)
+        if (isRequested) {
+            const cancelButton = document.createElement('button');
+            cancelButton.className = 'cancel-button';
+            cancelButton.textContent = 'Cancel Request';
+            cancelButton.type = 'button';
+            cancelButton.addEventListener('click', () => {
+                const ok = confirm(`Cancel connection request to ${mentee.name}?`);
+                if (!ok) return;
+                REQUESTED_MENTEES.delete(mentee.id);
+                saveRequestedToStorage();
+                // Update UI
+                button.textContent = 'Request Connect';
+                button.disabled = false;
+                button.classList.remove('requested');
+                card.classList.remove('requested-card');
+                cancelButton.remove();
+                // Show confirmation toast
+                const cancelToast = document.createElement('div');
+                cancelToast.className = 'ms-toast';
+                cancelToast.textContent = `Connection request to ${mentee.name} canceled.`;
+                document.body.appendChild(cancelToast);
+                setTimeout(() => cancelToast.remove(), 2200);
+            });
+            buttonContainer.appendChild(cancelButton);
+        }
+
+        card.appendChild(buttonContainer);
         listContainer.appendChild(card);
     });
 }
@@ -234,8 +290,10 @@ function filterMentees() {
 /**
  * Custom alert function to display connection request success.
  * @param {string} menteeName - The name of the mentee being requested.
+ * @param {HTMLElement} card - The mentee card element.
+ * @param {HTMLElement} buttonContainer - The button container element.
  */
-function alertRequest(menteeName, buttonEl, menteeId) {
+function alertRequest(menteeName, buttonEl, menteeId, card, buttonContainer) {
 
     // add level up
     let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
@@ -267,14 +325,48 @@ function alertRequest(menteeName, buttonEl, menteeId) {
 
     setTimeout(() => successToast.remove(), 2500);
 
-    // Update button state to requested (in-memory)
+    // Update button state to requested
     if (buttonEl) {
         buttonEl.textContent = 'Requested ✓';
         buttonEl.disabled = true;
         buttonEl.classList.add('requested');
     }
 
+    // Add card highlight
+    if (card) {
+        card.classList.add('requested-card');
+    }
+
+    // Persist request and add cancel button
     if (typeof menteeId !== 'undefined') {
         REQUESTED_MENTEES.add(menteeId);
+        saveRequestedToStorage();
+        
+        // Add cancel button if it doesn't exist
+        if (buttonContainer && !buttonContainer.querySelector('.cancel-button')) {
+            const cancelButton = document.createElement('button');
+            cancelButton.className = 'cancel-button';
+            cancelButton.textContent = 'Cancel Request';
+            cancelButton.type = 'button';
+            cancelButton.addEventListener('click', () => {
+                const ok = confirm(`Cancel connection request to ${menteeName}?`);
+                if (!ok) return;
+                REQUESTED_MENTEES.delete(menteeId);
+                saveRequestedToStorage();
+                // Update UI
+                buttonEl.textContent = 'Request Connect';
+                buttonEl.disabled = false;
+                buttonEl.classList.remove('requested');
+                card.classList.remove('requested-card');
+                cancelButton.remove();
+                // Show confirmation toast
+                const cancelToast = document.createElement('div');
+                cancelToast.className = 'ms-toast';
+                cancelToast.textContent = `Connection request to ${menteeName} canceled.`;
+                document.body.appendChild(cancelToast);
+                setTimeout(() => cancelToast.remove(), 2200);
+            });
+            buttonContainer.appendChild(cancelButton);
+        }
     }
 }
