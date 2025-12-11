@@ -7,9 +7,9 @@
 function showLevelUpToast(newLevel) {
 
   let currentTier = Math.floor(newLevel / 5) + 1;
-   let currentLvl = newLevel % 5 + 1;
-
-  const message = `🎉 Level Up! You're now level ${currentLvl} Tier ${currentTier}!`;
+  let currentLvl = newLevel % 5 + 1;
+  let levelsLeft = 6 - currentLvl;
+  const message = `🎉 Level Up! You're now level ${currentLvl} Tier ${currentTier}!\n${levelsLeft} level(s) left before next tier`;
   console.log(message);
 
   const levelUpToast = document.createElement('div');
@@ -98,7 +98,7 @@ document.getElementById('new-post-form').addEventListener('submit', function(e) 
 
     // 4. Redirect to the community page to see the updated list (with delay for toast visibility)
     setTimeout(() => {
-        window.location.href = '../CommunityPage/community.html';
+        window.location.href = '../communityPage/communityPage1/community.html';
     }, 1500);
    
     

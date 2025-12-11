@@ -2,7 +2,8 @@ function showLevelUpToast(newLevel) {
     let currentTier = Math.floor(newLevel / 5) + 1;
     let currentLvl = newLevel % 5 + 1;
 
-    const message = `🎉 Level Up! You're now level ${currentLvl} Tier ${currentTier}!`;
+    let levelsLeft = 6 - currentLvl;
+  const message = `🎉 Level Up! You're now level ${currentLvl} Tier ${currentTier}!\n${levelsLeft} level(s) left before next tier`;
     console.log(message);
 
     const levelUpToast = document.createElement('div');
