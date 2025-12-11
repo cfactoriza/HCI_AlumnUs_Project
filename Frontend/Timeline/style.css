@@ -308,3 +308,15 @@ input[type="text"] {
 #history-log h3 { margin-top: 0; color: #6366f1; font-size: 1.12em; }
 #history-log ul { margin: 0; padding-left: 20px; }
 #history-log li { margin-bottom: 5px; }
+
+.action-btn {
+    width: 160px;
+    padding: 6px 10px;
+    font-size: 0.9em;
+    border-radius: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    display: inline-block;
+}
