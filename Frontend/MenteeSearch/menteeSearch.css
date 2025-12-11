@@ -264,3 +264,20 @@ body {
         min-width: 80px;
     }
 }
+.back-button {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: auto;
+}
+.back-button:hover {
+    background: #1e40af;
+}
