@@ -15,7 +15,7 @@
 
 .heading {
     color: #2563eb;
-    text-align: left;
+    text-align: center;
     font-size: 1.8em;
     font-weight: 700;
     margin-bottom: 30px;
@@ -31,10 +31,11 @@
     padding: 10px;
     border-radius: 8px;
     background: #f1f5f9; /* Subtle background */
+    align-items: center;
 }
 #avatar-name-row {
     display: flex;
-    align-items: center;
+    align-items: left;
     margin-bottom: 10px;
 }
 
@@ -42,13 +43,14 @@
     width: 100%; /* Keep this */
     height: 100%; /* Keep this */
     object-fit: cover;
+    align-items: left;
 }
 
 .profile-link { width: 32px; height: 32px; }
 #user-name { font-size: 1.1em; }
 
 /* Level section is fine, maybe slightly smaller */
-#level-icon-img { height: 50px; width: 35px; }
+#level-icon-img { height: 50px; width: 35px; align-items: center;}
 .level-badge { padding: 3px 8px; font-size: 0.75em; }
 
 
