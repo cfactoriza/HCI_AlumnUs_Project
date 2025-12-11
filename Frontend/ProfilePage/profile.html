@@ -12,6 +12,10 @@
 
     <body>
         <main id="main-content-area">
+
+            <!-- BACK BUTTON (NEW + DYNAMIC) -->
+            <button class="back-button" onclick="goBack()">← Back</button>
+
             <div>
                 <h1>Alumn US</h1>
                 <h2>Set up your preferences</h2>
@@ -45,7 +49,6 @@
                 </select>
             </div>
 
-            <a href="../HomePage/home.html"><button class="back-button">Back</button></a>
             <button class="submit" onclick="addLevel()">Submit</button>
 
         </main>
@@ -53,5 +56,17 @@
         <script src="../SideBar/sidebar.js"></script>
         <script src="../LevelUp/IconGrowth.js"></script>
         <script src="profile.js"></script>
+
+        <!-- UNIVERSAL BACK FUNCTION (NEW) -->
+        <script>
+        function goBack() {
+            if (document.referrer && document.referrer !== window.location.href) {
+                window.history.back();
+            } else {
+                window.location.href = "../HomePage/home.html";
+            }
+        }
+        </script>
+
     </body>
 </html>

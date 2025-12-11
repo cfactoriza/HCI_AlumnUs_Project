@@ -2,13 +2,17 @@
 <html lang="en">
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel ="styleSheet" href="home.css">
-      <link rel ="styleSheet" href="../SideBar/sidebar.css">
+      <link rel="styleSheet" href="home.css">
+      <link rel="styleSheet" href="../SideBar/sidebar.css">
       <title>Alumn US | Dashboard</title>
     </head>
 
     <body>
       <main id="main-content-area">
+
+        <!-- NEW BACK BUTTON -->
+        <button class="back-button" onclick="goBack()">← Back</button>
+
         <input class="search-bar" type="text" placeholder="Search what you need here">
 
         <div class="welcome-section">
@@ -20,7 +24,7 @@
           <div class="header">
             <h1>Complete Your Daily Timeline Review</h1>
           </div>
-          <div class="timeline-review"
+          <div class="timeline-review">
             <a href="../Timeline/index.html">
               <button class="timeline-button">Timeline Review</button>
             </a>
@@ -30,7 +34,6 @@
         <div class="communities-section">
             <div class="header">
               <h1>Joined Communities</h1>
-              <!-- <button class="explore-all-button">Explore All</button> -->
             </div>
 
             <div class="community-grid">
@@ -40,25 +43,23 @@
                   <p>Short description of community...</p>
                 </div>
               </a>
-
-              <!-- <a href="../CommunityPage/community.html" class="card-link">
-                <div class="card">
-                  <h2>Early Advising Group</h2>
-                  <p>Get tips and advice on your first year.</p>
-                </div>
-              </a>
-              
-              <a href="../CommunityPage/community.html" class="card-link">
-                <div class="card">
-                  <h2>Studying Allies Network</h2>
-                  <p>Find partners for study sessions and group projects.</p>
-                </div>
-              </a>
-               -->
             </div>
         </div>
       </main>
+
       <script src="../SideBar/sidebar.js"></script>
       <script src="../LevelUp/IconGrowth.js"></script>
+
+      <!-- UNIVERSAL BACK FUNCTION -->
+      <script>
+      function goBack() {
+          if (document.referrer && document.referrer !== window.location.href) {
+              window.history.back();
+          } else {
+              window.location.href = "../HomePage/home.html";
+          }
+      }
+      </script>
+
     </body>
 </html>
