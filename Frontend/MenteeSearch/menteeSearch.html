@@ -4,72 +4,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Mentees</title>
     <link rel="stylesheet" href="menteeSearch.css">
+    <link rel="styleSheet" href="../SideBar/sidebar.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="heading">Find Your Mentees</h1>
-        <p class="subtitle">Search and filter students seeking guidance.</p>
+    <main id="main-content-area">
 
-        <div class="search-controls">
-            <input 
-                type="text" 
-                id="mentee-search-input" 
-                placeholder="Search by name, university, or major..." 
-                class="search-bar" 
-            >
+        <!-- NEW COMPACT BACK BUTTON -->
+        <button class="back-button" onclick="goBack()">← Back</button>
 
-            <div class="filter-group">
-                <label for="filter-department">Department:</label>
-                <select id="filter-department">
-                    <option value="">All Departments</option>
-                    </select>
-            </div>
-            
-            <div class="filter-group">
-                <label for="filter-major">Major:</label>
-                <select id="filter-major">
-                    <option value="">All Majors</option>
-                </select>
-            </div>
-            
-            <div class="filter-group">
-                <label for="filter-class">Key Class:</label>
-                <select id="filter-class">
-                    <option value="">All Classes</option>
-                    </select>
-            </div>
-            
-            <div class="filter-group">
-                <label for="filter-professor">Professor:</label>
-                <select id="filter-professor">
-                    <option value="">All Professors</option>
-                    </select>
-            </div>
+        <div class="container">
+            <h1 class="heading">Find Your Mentees</h1>
+            <p class="subtitle">Search and filter students seeking guidance.</p>
 
-            <div class="filter-group">
-                <label for="filter-university">University:</label>
-                <select id="filter-university">
-                    <option value="">All Universities</option>
-                </select>
-            </div>
-            
-            <button class="search-button" onclick="filterMentees()">Search Mentees</button>
-        </div>
-        
-        <div id="mentee-results-area" style="display: none;">
-            <div id="mentee-list">
+            <div class="search-controls">
+                <input 
+                    type="text" 
+                    id="mentee-search-input" 
+                    placeholder="Search by name, university, or major..." 
+                    class="search-bar" 
+                >
+
+                <div class="filter-group">
+                    <label for="filter-department">Department:</label>
+                    <select id="filter-department">
+                        <option value="">All Departments</option>
+                    </select>
                 </div>
-            <p id="no-results" style="text-align: center; color: #6b7280; margin-top: 30px; display: none;">No mentees found matching your filters.</p>
+
+                <div class="filter-group">
+                    <label for="filter-major">Major:</label>
+                    <select id="filter-major">
+                        <option value="">All Majors</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-class">Key Class:</label>
+                    <select id="filter-class">
+                        <option value="">All Classes</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-professor">Professor:</label>
+                    <select id="filter-professor">
+                        <option value="">All Professors</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-university">University:</label>
+                    <select id="filter-university">
+                        <option value="">All Universities</option>
+                    </select>
+                </div>
+
+                <button class="search-button" onclick="filterMentees()">Search Mentees</button>
+            </div>
+
+            <div id="mentee-results-area" style="display: none;">
+                <div id="mentee-list"></div>
+                <p id="no-results" style="text-align: center; color: #6b7280; margin-top: 30px; display: none;">
+                    No mentees found matching your filters.
+                </p>
+            </div>
+
         </div>
+    </main>
 
-        <a href="../HomePage/home.html" class="back-link">← Back to Home</a>
-    </div>
-
+    <script src="../SideBar/sidebar.js"></script>
+    <script src="../LevelUp/IconGrowth.js"></script>
     <script src="menteeData.js"></script>
     <script src="menteeSearch.js"></script>
+
+    <!-- UNIVERSAL BACK FUNCTION -->
+    <script>
+    function goBack() {
+        if (document.referrer && document.referrer !== window.location.href) {
+            window.history.back();
+        } else {
+            window.location.href = "../HomePage/home.html";
+        }
+    }
+    </script>
+
 </body>
 </html>

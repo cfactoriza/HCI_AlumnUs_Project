@@ -6,6 +6,13 @@ body {
   position: relative;
   min-height: 100vh;
 }
+
+#main-content-area {
+    margin-left: 200px;
+    flex-grow: 1;
+    padding: 30px;
+}
+
 .notice-banner {
   background: #f59e42;
   color: #fff;
@@ -135,21 +142,23 @@ body {
 }
 .reset-btn:hover { background: #a21caf; }
 .back-button {
-  display: block;
-  width: 100%;
-  background: #2563eb;
-  color: #fff;
-  padding: 12px 0;
-  margin-top: 18px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.08em;
-  font-weight: 600;
-  transition: background 0.2s;
-  cursor: pointer;
-  box-shadow: 0 1px 4px rgba(37,99,235,.09);
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: auto;
 }
-.back-button:hover { background: #1e40af; }
+.back-button:hover {
+    background: #1e40af;
+}
+
 .edit-btn, .save-btn {
   margin-top: 8px;
   padding: 6px 12px;
@@ -299,3 +308,15 @@ input[type="text"] {
 #history-log h3 { margin-top: 0; color: #6366f1; font-size: 1.12em; }
 #history-log ul { margin: 0; padding-left: 20px; }
 #history-log li { margin-bottom: 5px; }
+
+.action-btn {
+    width: 160px;
+    padding: 6px 10px;
+    font-size: 0.9em;
+    border-radius: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    display: inline-block;
+}

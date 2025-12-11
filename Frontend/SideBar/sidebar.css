@@ -1,0 +1,94 @@
+/* --- SIDEBAR STYLING --- */
+
+#sidebar {
+    width: 180px; /* Fixed width for the sidebar */
+    height: 100vh; /* Full height */
+    position: fixed; /* Keep it in place */
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    padding: 25px 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    color: #2563eb;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* --- PROFILE WIDGET STYLES (Adjusted for Sidebar) --- */
+
+#profile-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align contents to the left */
+    margin-bottom: 25px; 
+    padding: 10px;
+    border-radius: 8px;
+    background: #f1f5f9; /* Subtle background */
+    align-items: center;
+}
+#avatar-name-row {
+    display: flex;
+    align-items: left;
+    margin-bottom: 10px;
+}
+
+#user-avatar-img {
+    width: 100%; /* Keep this */
+    height: 100%; /* Keep this */
+    object-fit: cover;
+    align-items: left;
+}
+
+.profile-link { width: 32px; height: 32px; }
+#user-name { font-size: 1.1em; }
+
+/* Level section is fine, maybe slightly smaller */
+#level-icon-img { height: 50px; width: 35px; align-items: center;}
+.level-badge { padding: 3px 8px; font-size: 0.75em; }
+
+
+/* --- NAVIGATION MENU STYLING --- */
+
+#main-nav ul {
+    margin: 0;
+    /* FIX 1: The most important fix. Removes the browser's default indentation (padding) on the list. */
+    padding-left: 0;
+    /* FIX 2: Ensures bullet points are removed (Fixes the issue from the previous turn) */
+    list-style: none; 
+    padding-top: 10px;
+}
+
+.nav-item {
+    /* Note: If you still see a small indent, try adding margin: 0; here too */
+    margin-bottom: 8px;
+}
+
+.nav-item a {
+    display: block;
+    padding: 10px 15px;
+    color: #4b5563;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 6px;
+    /* FIX 3: Ensures underlines are removed */
+    text-decoration: none; 
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item a:hover {
+    background-color: #e0f2fe; /* Light blue on hover */
+    color: #2563eb;
+}
+
+.nav-item.active a {
+    background-color: #2563eb; /* Primary color for active link */
+    color: white;
+    font-weight: 600;
+}

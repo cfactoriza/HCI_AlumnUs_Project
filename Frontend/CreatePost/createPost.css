@@ -10,6 +10,14 @@
     --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
+#main-content-area {
+    /* FIX: Push content past the 180px sidebar + 20px gap */
+    margin-left: 200px;
+    flex-grow: 1;
+    /* Add padding to the main wrapper instead of the content sections */
+    padding: 30px; 
+}
+
 body, h1, h2, h3, div, label, select, button, input, textarea { 
     margin: 0;
     padding: 0;

@@ -11,8 +11,18 @@ body, h1, h2, h3, div, label, select, button {
 /* General body styling */
 body {
     background: linear-gradient(135deg, #dbeafe 0%, #fef3c7 100%);
-    padding: 40px 0;
+    display: flex;
+    padding: 0; /* Remove top/bottom padding here, use padding on main area */
     min-height: 100vh;
+}
+
+#main-content-area {
+    /* Set margin to new sidebar width (180px) + 20px gap = 200px */
+    margin-left: 200px;
+    flex-grow: 1;
+    padding: 30px;
+    /* Ensure content doesn't overflow horizontally */
+    max-width: calc(100% - 200px); 
 }
 
 /* Container for form sections */
@@ -76,20 +86,23 @@ select:focus {
 }
 
 .back-button {
-    display: block;
-    width: 100%;
+    display: inline-block;
     background: #2563eb;
     color: #fff;
-    padding: 12px 0;
-    margin-top: 18px;
+    padding: 8px 16px;
+    margin-bottom: 20px;
     border: none;
     border-radius: 8px;
-    font-size: 1.08em;
+    font-size: 0.95em;
     font-weight: 600;
-    transition: background 0.2s;
     cursor: pointer;
-    box-shadow: 0 1px 4px rgba(37,99,235,.09);
+    transition: background 0.2s;
+    width: auto;
 }
+.back-button:hover {
+    background: #1e40af;
+}
+
 
 .submit{
     background: rgb(30, 220, 40);

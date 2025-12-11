@@ -12,6 +12,12 @@ body {
     min-height: 100vh;
 }
 
+#main-content-area {
+    margin-left: 200px;
+    flex-grow: 1;
+    padding: 30px;
+}
+
 .container {
     background: #fff;
     border-radius: 16px;
@@ -120,11 +126,18 @@ body {
     padding: 15px 20px;
     margin-bottom: 15px;
     box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, background-color 0.3s, border-color 0.3s;
 }
 
 .mentee-card:hover {
     box-shadow: 0 4px 10px rgba(37,99,235,0.1);
+}
+
+/* Highlight requested mentee cards */
+.mentee-card.requested-card {
+    background: #fffbeb;
+    border-color: #facc15;
+    border-left: 4px solid #facc15;
 }
 
 .mentee-avatar {
@@ -200,11 +213,35 @@ body {
     background: #facc15;
     color: #1f2937;
     cursor: default;
-    animation: fade-in 0.4s ease-in-out;
 }
 
 .request-button.requested:hover {
     background: #facc15;
+}
+
+/* Button container for request and cancel buttons */
+.button-container {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* Cancel button styling */
+.cancel-button {
+    background: #ef4444;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+}
+
+.cancel-button:hover {
+    background: #dc2626;
 }
 
 /* Toast style for request confirmation */
@@ -257,4 +294,21 @@ body {
     .filter-group label {
         min-width: 80px;
     }
+}
+.back-button {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: auto;
+}
+.back-button:hover {
+    background: #1e40af;
 }
