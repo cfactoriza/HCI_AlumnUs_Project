@@ -41,7 +41,8 @@ function showLevelUpToast(newLevel) {
    let currentTier = Math.floor(newLevel / 5) + 1;
    let currentLvl = newLevel % 5 + 1;
 
-  const message = `🎉 Level Up! You're now level ${currentLvl} Tier ${currentTier}!`;
+  let levelsLeft = 6 - currentLvl;
+  const message = `🎉 Level Up! You're now level ${currentLvl} Tier ${currentTier}!\n${levelsLeft} level(s) left before next tier`;
   console.log(message);
 
   const levelUpToast = document.createElement('div');
@@ -302,7 +303,8 @@ function alertRequest(menteeName, buttonEl, menteeId, card, buttonContainer) {
     showLevelUpToast(level);
 
     // Show a small, non-blocking toast
-    const message = `Connection request sent to ${menteeName}! They will review your profile.`;
+    let levelsLeft = 6 - currentLvl;
+  const message = `🎉 Level Up! You're now level ${currentLvl} Tier ${currentTier}!\n${levelsLeft} level(s) left before next tier`;
     console.log(message);
 
     const successToast = document.createElement('div');
