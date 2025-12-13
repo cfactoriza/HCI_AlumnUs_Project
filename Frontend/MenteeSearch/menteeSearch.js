@@ -297,10 +297,15 @@ function filterMentees() {
 function alertRequest(menteeName, buttonEl, menteeId, card, buttonContainer) {
 
     // add level up
-    let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
-    level++;
-    sessionStorage.setItem('userLevel', level);
-    showLevelUpToast(level);
+    // let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    // level++;
+    // sessionStorage.setItem('userLevel', level);
+    // showLevelUpToast(level);
+
+    // window.dispatchEvent(new Event('userLevelUpdated'));
+    levelUp();
+    const newLevel = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    showLevelUpToast(newLevel);
 
     // Show a small, non-blocking toast
     let levelsLeft = 6 - currentLvl;

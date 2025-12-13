@@ -1,5 +1,3 @@
-
-
 /**
  * Display a toast notification for level-up events.
  * @param {number} newLevel - The new level after leveling up.
@@ -50,10 +48,6 @@ function showLevelUpToast(newLevel) {
 document.getElementById('new-post-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    
-
-
-
     const postType = document.getElementById('post-type').value;
     const postTitle = document.getElementById('post-title').value;
     const postAuthor = document.getElementById('post-author').value;
@@ -85,11 +79,7 @@ document.getElementById('new-post-form').addEventListener('submit', function(e) 
     let posts = JSON.parse(localStorage.getItem('communityPosts')) || [];
 
     // add level up
-    let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
-    level++;
-    sessionStorage.setItem('userLevel', level);
-    showLevelUpToast(level);
-
+    levelUp();
     // 2. Prepend the new post (to show it at the top, newest first)
     posts.unshift(newPost);
 
@@ -98,9 +88,6 @@ document.getElementById('new-post-form').addEventListener('submit', function(e) 
 
     // 4. Redirect to the community page to see the updated list (with delay for toast visibility)
     setTimeout(() => {
-        window.location.href = '../communityPage/communityPage1/community.html';
+        window.location.href = '../CommunityPage/community.html';
     }, 1500);
-   
-    
-
 });

@@ -221,10 +221,9 @@ window.pinNotePrompt = function(idx) {
   } else {
     alert("Please enter a valid note.");
   }
-  let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
-  level++;
-  sessionStorage.setItem('userLevel', level);
-  showLevelUpToast(level);
+  levelUp();
+  const newLevel = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    showLevelUpToast(newLevel);
 };
 
 window.addPeerNote = function(idx) {
@@ -237,10 +236,9 @@ window.addPeerNote = function(idx) {
   } else {
     alert("Please enter a valid comment.");
   }
-  let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
-  level++;
-  sessionStorage.setItem('userLevel', level);
-  showLevelUpToast(level);
+  levelUp();
+  const newLevel = parseInt(sessionStorage.getItem('userLevel')) || 1;
+  showLevelUpToast(newLevel);
 };
 
 window.markGoalComplete = function(idx) {
@@ -248,9 +246,9 @@ window.markGoalComplete = function(idx) {
     state.events[idx].completed = true;
     logChange("Marked goal as complete at index " + idx);
     renderTimeline();
-    let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
-    level++;
-    sessionStorage.setItem('userLevel', level);
+    levelUp();
+    const newLevel = parseInt(sessionStorage.getItem('userLevel')) || 1;
+    showLevelUpToast(newLevel);
   }
 };
 
@@ -270,6 +268,7 @@ function addEventHandler(e) {
     level++;
     sessionStorage.setItem('userLevel', level);
     try { if (typeof showLevelUpToast === 'function') showLevelUpToast(level); } catch (e) {}
+    window.dispatchEvent(new Event('userLevelUpdated'));
   } else {
     alert("Please provide a valid date and description.");
   }
