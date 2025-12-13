@@ -42,12 +42,10 @@ function showLevelUpToast(newLevel) {
 }
 
 function addLevel(){
-    let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
-    level++;
-    showLevelUpToast(level);
-    sessionStorage.setItem('userLevel', level);
-    
-    
+    levelUp();
+    const newLevel = parseInt(sessionStorage.getItem('userLevel')) || 0;
+    showLevelUpToast(newLevel);
+
     // Redirect to home page after toast displays
     setTimeout(() => {
         window.location.href = '../HomePage/home.html';

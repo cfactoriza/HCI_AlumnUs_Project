@@ -1,7 +1,7 @@
 /* profile.css */
 
 /* Reset some browser defaults */
-body, h1, h2, h3, div, label, select, button {
+body, h1, h2, h3, div, label, input, select, button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,16 +23,6 @@ body {
     padding: 30px;
     /* Ensure content doesn't overflow horizontally */
     max-width: calc(100% - 200px); 
-}
-
-/* Container for form sections */
-div {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 14px rgba(0,0,0,0.07);
-    max-width: 440px;
-    margin: 32px auto;
-    padding: 32px 24px;
 }
 
 h1 {
@@ -66,6 +56,26 @@ label {
     margin-bottom: 7px;
     margin-top: 10px;
     font-weight: 600;
+}
+
+input[type="text"] {
+    display: block; /* Makes the input take up its own line */
+    width: 100%; /* Crucial: This makes the input field span the full width of its container */
+    
+    /* Consistency styles (matching the 'select' element below) */
+    padding: 10px 14px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    color: #374151;
+    transition: border 0.2s;
+    margin-bottom: 14px; /* Adds space below the field */
+}
+
+input[type="text"]:focus {
+    border: 1.5px solid #2563eb;
+    outline: none;
 }
 
 select {

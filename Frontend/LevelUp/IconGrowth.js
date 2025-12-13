@@ -14,50 +14,39 @@ let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
  * Calculates the current tier, growth, and updates the level icon and info badge.
  */
 function updateAvatar() {
-  // Save current level
-  sessionStorage.setItem('userLevel', level);
+  const level = parseInt(sessionStorage.getItem('userLevel')) || 0;
 
-  // Calculate tier and growth within the current tier
   const tier = Math.floor(level / levelsPerTier);
   const currentLevelInTier = (level % levelsPerTier) + 1;
-  const growth = currentLevelInTier / levelsPerTier; // Scales from 0.2 to 1.0 within the tier
+  const growth = currentLevelInTier / levelsPerTier;
   const icon = icons[Math.min(tier, icons.length - 1)];
-
-  // --- HTML/CSS TARGETING ---
 
   const levelIconImg = document.getElementById("level-icon-img");
   const levelInfo = document.getElementById("level-info");
 
-  // 1. Update the image source (Icon Change)
-  if (levelIconImg) {
-      if (levelIconImg.src.indexOf(icon) === -1) {
-          levelIconImg.src = icon;
-      }
-  }
+  if (!levelIconImg || !levelInfo) return;
 
-  // 2. Apply the scaling transform (Growth Animation)
-  if (levelIconImg) {
-      // Scales the icon size from 1.0 (base size) up to 1.5 (max growth)
-      levelIconImg.style.transform = `scale(${1 + growth * 0.25})`;
-  }
+  levelIconImg.src = icon;
+  levelIconImg.style.transform = `scale(${1 + growth * 0.25})`;
 
-  // 3. Update the Level Badge text
-  if (levelInfo) {
-      levelInfo.textContent =
-        `Lv: ${currentLevelInTier}/${levelsPerTier} | Tier: ${Math.min(tier + 1, icons.length)}`;
-  }
+  levelInfo.textContent =
+    `Lv ${currentLevelInTier}/${levelsPerTier} • Tier ${tier + 1}`;
 }
+
+window.updateAvatar = updateAvatar;
 
 /**
  * Increments the user level and triggers the update.
  */
 function levelUp() {
-const maxLevel = icons.length * levelsPerTier;
+  let level = parseInt(sessionStorage.getItem('userLevel')) || 0;
+  const maxLevel = icons.length * levelsPerTier;
 
   if (level < maxLevel) { // Only increment if we haven't reached the absolute max
     level++;
     sessionStorage.setItem('userLevel', level); // Save the new level instantly
-    updateAvatar(); // Call the function that updates the sidebar HTML instantly
+    // updateAvatar(); // Call the function that updates the sidebar HTML instantly
+    window.dispatchEvent(new Event('userLevelUpdated')); // Notify other parts of the app
 
     // You can add logic for a "Level Up!" toast notification here if desired
     console.log(`Leveled up to: ${level}`);
