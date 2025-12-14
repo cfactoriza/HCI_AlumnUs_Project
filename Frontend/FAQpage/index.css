@@ -1,0 +1,121 @@
+/* home.css - MODIFIED FOR SIDEBAR LAYOUT */
+
+/* --- GLOBAL RESETS AND LAYOUT --- */
+
+body, h1, h2, p, div, input, a, button, ul, li {
+    margin: 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif; /* Or 'Inter', sans-serif if linked */
+
+}
+
+body {
+    background: linear-gradient(135deg, #dbeafe 0%, #fef3c7 100%);
+    padding: 0; /* Remove padding from body */
+    min-height: 100vh;
+    display: flex; /* Use flexbox for the main layout */
+}
+
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+
+
+/* --- MAIN CONTENT STYLING --- */
+
+#main-content-area {
+    margin-left: 200px;
+    flex-grow: 1;
+    padding: 30px;
+    max-width: calc(100% - 200px);
+}
+
+.title{
+    color: #2563eb;
+    margin-left: 250px;
+    margin-bottom: 50px;
+}
+
+/* Card styling for communities (Adjusted slightly) */
+.card-link {
+    text-decoration: none;
+    display: block;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin: 30px; /* Remove original centered margin */
+    
+}
+
+
+
+.card h2 {
+    color: #f59e42;
+    font-size: 1.5em;
+    margin-bottom: 1cqh;
+    font-weight: 700;
+}
+
+.card p {
+    color: #000000;
+    font-size: 17px;
+}
+
+
+/* --- RESPONSIVENESS FOR SMALL SCREENS --- */
+@media (max-width: 1000px) {
+    /* At 1000px, collapse the sidebar for mobile-like view */
+    #sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+        padding: 15px;
+    }
+
+    #main-content-area {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    /* Make the navigation links horizontal */
+    #main-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 15px;
+        border-top: 1px solid #e5e7eb;
+        padding-top: 15px;
+    }
+    .nav-item {
+        margin: 0 5px 8px 5px;
+    }
+    .nav-item a {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    /* Adjust profile widget */
+    #profile-widget {
+        align-items: center;
+        margin: 15px 0;
+    }
+    #avatar-name-row {
+        margin-bottom: 10px;
+    }
+    
+    
+    .question-grid {
+        
+        grid-template-columns: 1fr; /* Stack cards vertically */
+    }
+}

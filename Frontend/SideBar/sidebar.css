@@ -13,6 +13,10 @@
     flex-direction: column;
 }
 
+.linkToFAQ{
+    color: #2563eb;
+   
+}
 .heading {
     color: #2563eb;
     text-align: center;
